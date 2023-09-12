@@ -17,6 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from women.views import *
+# настройка адрисной строки
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',index),
+    path('cat/',categories),
+    path('mario/',moon),
+    path('cot/',moon1),
+    path('cod/',moon2),
 ]
