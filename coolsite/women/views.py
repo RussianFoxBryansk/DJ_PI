@@ -14,4 +14,4 @@ def moon(request):
 def moon1(request):
     return HttpResponse("Кот")
 def moon2(request):
-    return HttpResponse("<img> https://dobrovserdce.ru/images/2022/11/02/kot%20Fedya_large.jpeg </img>")
+    return HttpResponse("<img src=https://dobrovserdce.ru/images/2022/11/02/kot%20Fedya_large.jpeg /img>")
