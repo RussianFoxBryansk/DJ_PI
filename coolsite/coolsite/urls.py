@@ -21,10 +21,16 @@ from django.urls import path, include
 # настройка адрисной строки
 from women.views import *
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('women/',include('women.urls')),
     path('cats/<int:cats_id>/', categories),
     path('cats/<slug:cats>/', categories_slug),
-
+    path('students/<int:students_id>/', students),
+    path('students/<slug:students>/', students_slug),
+    path('studo/<slug:students>/', stud_slug),
+    path("spisok/<int:key> ",spisok),
+    path('date/<int:datee>/',date),
 ]

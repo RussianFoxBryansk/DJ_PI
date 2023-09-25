@@ -9,5 +9,6 @@ urlpatterns = [
     path('mario/',moon),
     path('cot/',moon1),
     path('cod/',moon2),
-    path('cats/<int:cats_id>/',categories),
+
+
 ]
