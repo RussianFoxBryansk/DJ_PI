@@ -1,6 +1,7 @@
 # для хранения представлений текущего приложения
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseNotFound, Http404
+from django.shortcuts import render, redirect
+
 dir = {
         '1': ['Игнатьев А.А.',' 2001'],
         '2': ['Коновалов А.',' 2003'],
@@ -13,6 +14,10 @@ dir = {
         '9': ['Лелетко П. 2001'],
         '10': ['Селебин А. 2003'],
     }
+
+def index1(request):
+    print(request.GET)
+    return HttpResponse(f"страница приложения women{dict(request.GET)}")
 
 # Create your views here.
 def index(request):
@@ -66,3 +71,15 @@ def date(request,datee):
         return HttpResponse(f"<h1> Студенты {dir[str(datee)]} найдены </h1>")
     else:
         return HttpResponse(f"<h1>Студента с таким годом {datee} нет</h1>")
+
+def pageNotFound(request,exception):
+    print(exception)
+    return HttpResponseNotFound(f"<h1>Страница не найдена{exception}</h1>")
+
+def year_archive(request,year):
+
+    if (int(year))> 2023:
+        raise Http404()
+    if (int(year))< 2000:
+        return redirect('home',permanent=True)
+    return HttpResponse(f"<h1>год изменения {year}</h1>")
