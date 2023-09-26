@@ -19,13 +19,13 @@ from django.urls import path, include
 
 
 # настройка адрисной строки
-from women.views import *
+from women.views import pageNotFound
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('women/',include('women.urls')),
+    path('',include('women.urls')),
 
 ]
 

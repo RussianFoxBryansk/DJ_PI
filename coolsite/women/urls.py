@@ -23,4 +23,3 @@ urlpatterns = [
     path('articles/<yyyy:year>/',year_archive),
 ]
 
-handler404 = pageNotFound
