@@ -19,7 +19,10 @@ from django.urls import path, include
 
 
 # настройка адрисной строки
-from women.views import pageNotFound
+from women.views import pageNotFound, ServerError, AccessBan, SearchError
+
+from django.urls import path
+
 
 
 
@@ -31,3 +34,6 @@ urlpatterns = [
 
 
 handler404 = pageNotFound
+handler500 = ServerError
+handler403 = AccessBan
+handler400 = SearchError

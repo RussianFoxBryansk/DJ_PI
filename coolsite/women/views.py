@@ -1,6 +1,32 @@
 # для хранения представлений текущего приложения
+from contextvars import Context
+
+from django.core.exceptions import SuspiciousOperation, PermissionDenied
 from django.http import HttpResponse, HttpResponseNotFound, Http404
+
 from django.shortcuts import render, redirect
+
+
+from django.views.decorators.csrf import requires_csrf_token
+
+def ServerError(request):
+    return HttpResponseNotFound( '<h1>ошибка сервера<h1>')
+
+def AccessBan(request, exception):
+    print(exception)
+    return HttpResponseNotFound('<h1>нет доступа<h1>')
+
+def SearchError(request, exception):
+    print(exception)
+    return HttpResponseNotFound('Ошибка 400')
+
+
+
+
+
+
+
+
 
 dir = {
         '1': ['Игнатьев А.А.',' 2001'],
@@ -21,7 +47,11 @@ def index1(request):
 
 # Create your views here.
 def index(request):
-    return HttpResponse("<a href=cod/>Страницу приложения видно 1</a><br><a href=cot/>Страницу приложения видно 2</a>")
+    return HttpResponse("<a href=cod/>Страницу приложения видно 1</a>"
+                        "<hr>"
+                        "<a href=cot/>Страницу приложения видно 2</a>"
+                        "<hr>"
+                        "<a href=cot/>Страницу приложения видно 3</a>")
 
 def categories(request, cats_id):
     return HttpResponse(f"<h1>Статья под номером {cats_id}</h1>")
@@ -31,8 +61,10 @@ def categories_slug(request, cats):
 def students(request, students_id):
     if students_id>0 and students_id<=10:
         return HttpResponse(f"<h1>Студент {students_id}){dir[str(students_id)][0]} найден</h1>")
+    if students_id ==-1:
+        return redirect('test', permanent=True)
     else:
-        return HttpResponse(f"<h1>Студента под номеромом {students_id} нет</h1>")
+        raise Http404()
 
 def students_slug(request, students):
     return HttpResponse(f"<h1>Статья про студента{students}</h1>")
@@ -50,14 +82,7 @@ def moon1(request):
     return HttpResponse("Кот")
 def moon2(request):
     return HttpResponse("<img src=https://dobrovserdce.ru/images/2022/11/02/kot%20Fedya_large.jpeg /img>")
-date= {
-        "2001": ['Игнатьев А.А. 28.06.2001','Лелетко П. 2001'],
-        "2002": ['Ковалёв А. 2002','Король Б. 2002'],
-        "2003": ['Студентов этого года нет'],
-        "2004": ['Тузов А. 2004','Коновалов А. 2004','Снытко Р. 2004','Лебедев Д. 2004','Селебин А. 2004'],
-        "2005": ['Мартыненко Д.Д 2005'],
 
-    }
 def date(request,datee):
     dir = {
         "2001": ['Игнатьев А.А. 28.06.2001','Лелетко П. 2001'],
@@ -67,6 +92,8 @@ def date(request,datee):
         "2005": ['Мартыненко Д.Д 2005'],
 
     }
+    if datee ==2009:
+        return redirect('mario', permanent=True)
     if datee > 2001 and datee < 2005:
         return HttpResponse(f"<h1> Студенты {dir[str(datee)]} найдены </h1>")
     else:
@@ -77,9 +104,24 @@ def pageNotFound(request,exception):
     return HttpResponseNotFound(f"<h1>Страница не найдена{exception}</h1>")
 
 def year_archive(request,year):
-
+    if (int(year))== 1000:
+        raise SuspiciousOperation
+    if (int(year))==1100:
+        raise PermissionDenied
+    if (int(year))==1110:
+        raise Context
     if (int(year))> 2023:
         raise Http404()
-    if (int(year))< 2000:
+    if (int(year))==2000:
         return redirect('home',permanent=True)
     return HttpResponse(f"<h1>год изменения {year}</h1>")
+
+def save_data(request):
+    if request.method == 'GET':
+        data = request.GET.get('GET', '')
+        with open('GET.txt', 'a') as file:
+            file.write(data + '\n')
+        return HttpResponse('Данные успешно записаны в файл')
+    else:
+        return HttpResponse('Метод запроса должен быть GET')
+
