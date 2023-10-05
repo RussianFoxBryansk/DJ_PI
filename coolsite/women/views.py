@@ -5,7 +5,8 @@ from django.core.exceptions import SuspiciousOperation, PermissionDenied
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 
 from django.shortcuts import render, redirect
-
+from django.template.defaultfilters import slugify, upper
+from django.template.loader import render_to_string
 
 from django.views.decorators.csrf import requires_csrf_token
 
@@ -45,16 +46,23 @@ def index1(request):
     print(request.GET)
     return HttpResponse(f"страница приложения women{dict(request.GET)}")
 
-# Create your views here.
+
+menu=['О сайте','Войти',"Обратная связь"]
 def index(request):
-    return HttpResponse("<a href=cod/>Страницу приложения видно 1</a>"
-                        "<hr>"
-                        "<a href=cot/>Страницу приложения видно 2</a>"
-                        "<hr>"
-                        "<a href=cot/>Страницу приложения видно 3</a>")
+    #t =render_to_string('women/index.html')
+    #return HttpResponse(t)
+    data={'title':'главная страница',
+          'menu': menu,
+          'float':23.123,
+          'url': upper("Очень крутой курсовик")
+          }
+    return render(request,'women/index.html',context=data)
+# Create your views here.
+
 
 def categories(request, cats_id):
     return HttpResponse(f"<h1>Статья под номером {cats_id}</h1>")
+
 def categories_slug(request, cats):
     return HttpResponse(f"<h1>Статья под категории {cats}</h1>")
 
