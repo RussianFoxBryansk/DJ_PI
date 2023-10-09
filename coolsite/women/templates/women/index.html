@@ -16,5 +16,28 @@
     <a href=cot/>Страницу приложения видно 2</a>
     <hr>
     <a href=test/>Страницу приложения видно 3</a>
+    <p>{{ title|add:"2" }}</p>
+    <p>{{ title|addslashes }}</p>
+    <p>{{ title|capfirst }}</p>
+    <p>"{{ title|center:"15" }}"</p>
+    <p>{{ title|cut:" " }}</p>
+    <p>{{ int|date:"D d M Y"|default:"nothing" }}</p>
+<p>{{ value|date:"SHORT_DATE_FORMAT" }}</p>
+<p>{{title|dictsort:"name" }}</p>
+<p>{{ int|date:"D d M Y" }}</p>
+<p>{{ int|date:"D d M Y" }}</p>
+<h1> {{title|upper| cut:' ' | cut:'А'  }}  Все заглавные буквы и удалить пробел и буквы А</p> </h1>
+    <p> {{menu.1|upper}}:Слово Заглавными буквами</p>
+    <p> {{float|add:"50"}} : Добавить 50 </p>
+    <p> {{value|default:"nothing"}} по Умолчанию Ничего </p>
+    <p> {{url}} </p>
+    <p> {{dict.key_1}} : Вывод Key1</p>
+    <p> {{set|linenumbers}} : список вывода 1. 2. и т.д.</p>
+    <p> {{int|floatformat}} : Перевод в float format</p>
+    <p> {{list|length}} : Размерность </p>
+    <p> {{bool|filesizeformat}}: Формат размера файла</p>
+    <p> {{tup|iriencode}} : Перевод в IRI код</p>
+    <p> {{obj}} </p>
+    <p>{{ value|time:"H:i" }}</p>
 </body>
 </html>

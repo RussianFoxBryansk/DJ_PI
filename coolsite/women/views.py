@@ -52,10 +52,21 @@ def index(request):
     #t =render_to_string('women/index.html')
     #return HttpResponse(t)
     data={'title':'главная страница',
-          'menu': menu,
-          'float':23.123,
-          'url': upper("Очень крутой курсовик")
+            'menu':menu,
+            'float':23.123,
+            'value': 1,
+            'url': slugify ("OCHEN KRUTOY KURSACH"),
+            'dict': {'маррио':'28.09.1999'},
+            'set': "a,b,c",
+            'int': 2023,
+          'tup': [1, 2.0, "hello"],
+          'bool': True,
+          'list': [1, 2, 'abc', True],
+          'set1': {1, 1, 2, 3, 2, 5},
+          'dict1': {'key_1': 'value_1', 'key_2': 'value_2'},
+         'obj': categories(10, 20),
           }
+    data_txt={}
     return render(request,'women/index.html',context=data)
 # Create your views here.
 
