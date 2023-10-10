@@ -48,6 +48,10 @@ def index1(request):
 
 
 menu=['О сайте','Войти',"Обратная связь"]
+class MyClass:
+    def __init__(self, a,b):
+        self.a = a
+        self.b = b
 def index(request):
     #t =render_to_string('women/index.html')
     #return HttpResponse(t)
@@ -64,11 +68,21 @@ def index(request):
           'list': [1, 2, 'abc', True],
           'set1': {1, 1, 2, 3, 2, 5},
           'dict1': {'key_1': 'value_1', 'key_2': 'value_2'},
-         'obj': categories(10, 20),
+         'obj': MyClass(10, 20),
           }
     data_txt={}
     return render(request,'women/index.html',context=data)
 # Create your views here.
+def post_detail(request):
+    get_params = dict(request.GET)
+    if get_params:
+        print(request.GET)
+        for i,k in  get_params.items():
+            print(i,k)
+        return HttpResponse(f'')
+    else:
+        return HttpResponse("GET is empty")
+
 
 
 def categories(request, cats_id):
@@ -98,7 +112,7 @@ def spisok(request,key):
 def moon(request):
     return HttpResponse("<h2> Это же МАРРИО- </h2>")
 def moon1(request):
-    return HttpResponse("Кот")
+    return render(request,'cookie/index.html')
 def moon2(request):
     return HttpResponse("<img src=https://dobrovserdce.ru/images/2022/11/02/kot%20Fedya_large.jpeg /img>")
 

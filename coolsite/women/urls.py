@@ -22,5 +22,6 @@ urlpatterns = [
     path('date/<int:datee>/',date,name ='date'),
     path('articles/<yyyy:year>/',year_archive,name ='articles'),
     path('DATA/', save_data, name='GET'),
+    path('GET_13/',post_detail),
 ]
 
