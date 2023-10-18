@@ -79,7 +79,10 @@ def post_detail(request):
         print(request.GET)
         for i,k in  get_params.items():
             print(i,k)
-        return HttpResponse(f'')
+        response_string = ''
+        for k, v in get_params.items():
+            response_string += f'{k} = {v} | '
+        return HttpResponse(response_string)
     else:
         return HttpResponse("GET is empty")
 
