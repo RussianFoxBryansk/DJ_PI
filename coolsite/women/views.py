@@ -161,3 +161,54 @@ def save_data(request):
     else:
         return HttpResponse('Метод запроса должен быть GET')
 
+
+
+def split_line(line, sep):
+    if not line:
+        return ['']
+    list1=[]
+    sim=""
+    cav = False
+    for i in line:
+        if '"'  in i:
+            cav = not cav
+        if sep in i and cav == False :
+            list1.append(sim.replace('"',''))
+            sim = ""
+        else:
+            sim += i
+    list1.append(sim.replace('"',''))
+    return list1
+
+
+
+
+
+
+
+
+
+def read_split_line_tests():
+    example_1_line = 'Александр Александрович Александров,,2005,11'
+    example_1_sep = ','
+    example_1_res = ['Александр Александрович Александров', '', '2005', '11']
+
+    print(split_line(example_1_line, example_1_sep), example_1_res)
+
+    example_2_line = 'Евгений Сергеевич Дёмин;;'
+    example_2_sep = ';'
+    example_2_res = ['Евгений Сергеевич Дёмин', '', '']
+
+    print(split_line(example_2_line, example_2_sep), example_2_res)
+
+    example_3_line = 'Анна Павловна Иванова,"[запись 1, запись 2, запись 3]", ,2'
+    example_3_sep = ','
+    example_3_res = ['Анна Павловна Иванова', '[запись 1, запись 2, запись 3]', ' ', '2']
+
+    print(split_line(example_3_line, example_3_sep), example_3_res)
+
+    print('Все тесты прошли успешно!')
+
+def split_line1(request):
+
+    return HttpResponse(f"<h1></h1>")
