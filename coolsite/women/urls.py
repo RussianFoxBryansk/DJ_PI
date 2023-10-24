@@ -9,6 +9,7 @@ urlpatterns = [
 
     path('',index, name = 'home'),
     path('cat/',categories, name ='cat'),
+    path('about/',about,name ='about'),
     path('mario/',moon, name ='mario'),
     path('cot/',moon1,name ='cot'),
     path('cod/',moon2,name ='cod'),
@@ -23,6 +24,6 @@ urlpatterns = [
     path('articles/<yyyy:year>/',year_archive,name ='articles'),
     path('DATA/', save_data, name='GET'),
     path('GET_13/',post_detail),
-    path('split/',split_line1),
+
 ]
 

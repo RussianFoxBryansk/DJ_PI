@@ -5,15 +5,16 @@
     <title>ЗА ОРДУ</title>
 </head>
 <body>
+
     {{menu|upper |cut:'А'}}
     <br>
     {{title|capfirst}}
     <hr>
     {{url}}
     <hr>
-    <a href=cod/>Страницу приложения видно 1</a>
+    <a href="{% url 'cot' %}">Страницу приложения видно 1</a>
     <hr>
-    <a href=cot/>Страницу приложения видно 2</a>
+    <a href="{% url 'about' %}">Страницу приложения видно 2</a>
     <hr>
     <a href=test/>Страницу приложения видно 3</a>
     <p>{{ title|add:"2" }}</p>
@@ -38,6 +39,14 @@
     <p> {{bool|filesizeformat}}: Формат размера файла</p>
     <p> {{tup|iriencode}} : Перевод в IRI код</p>
     <p > {{obj}} </p>
-
+    <ul>
+{% for p in posts %}
+        <li>
+            <h2>{{p.F10}}</h2>
+            <p>{{p.intresting}}</p>
+            <hr>
+    </li>
+{% endfor %}
+</ul>
 </body>
 </html>

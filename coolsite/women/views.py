@@ -47,7 +47,13 @@ def index1(request):
     return HttpResponse(f"страница приложения women{dict(request.GET)}")
 
 
-menu=['О сайте','Войти',"Обратная связь"]
+menu=[{'title':'О сайте','url_name':'about'},
+      {'title':'О сайте','url_name':'moon2'},
+      {'title':'О сайте','url_name':'index1'},]
+
+def about(request):
+    return render(request,'women/about.html',context={'menu':menu})
+
 class MyClass:
     def __init__(self, a,b):
         self.a = a
@@ -69,6 +75,8 @@ def index(request):
           'set1': {1, 1, 2, 3, 2, 5},
           'dict1': {'key_1': 'value_1', 'key_2': 'value_2'},
          'obj': MyClass(10, 20),
+          'posts':date_db,
+
           }
     data_txt={}
     return render(request,'women/index.html',context=data)
@@ -182,12 +190,6 @@ def split_line(line, sep):
 
 
 
-
-
-
-
-
-
 def read_split_line_tests():
     example_1_line = 'Александр Александрович Александров,,2005,11'
     example_1_sep = ','
@@ -209,6 +211,7 @@ def read_split_line_tests():
 
     print('Все тесты прошли успешно!')
 
-def split_line1(request):
-
-    return HttpResponse(f"<h1></h1>")
+date_db =[{'id':1,'F10':'Снытко Руслан Николаевич','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':True},
+{'id':2,'F10':'Король Богдан Александрович','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':True},
+{'id':3,'F10':'Тузов Александр Максимович','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':False},
+]
