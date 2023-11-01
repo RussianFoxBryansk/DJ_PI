@@ -27,7 +27,21 @@ def SearchError(request, exception):
 
 
 
+def show_spisok(request, spisok_id):
+    return HttpResponse(f"Отображение списка студента = {spisok_id}")
 
+spisok_db = [
+    {'id' : 1, 'title' : 'Игнатьев А.А.', 'content': '28.06.2001','is_published': True},
+    {'id': 2, 'title': 'Коновалов А.', 'content': '2004','is_published': True},
+    {'id': 3, 'title': 'Тузов А.', 'content': '2004','is_published': True},
+    {'id': 4, 'title': 'Ковалёв А.', 'content': '2002','is_published': True},
+    {'id': 5, 'title': 'Король Б.', 'content': '2002','is_published': True},
+    {'id': 6, 'title': 'Снытко Р.', 'content': '2004','is_published': True},
+    {'id': 7, 'title': 'Лебедев Д.', 'content': '2004','is_published': False},
+    {'id': 8, 'title': 'Мартыненко Д.', 'content': '2005','is_published': True},
+    {'id': 9, 'title': 'Лелетко П.', 'content': '2001','is_published': True},
+    {'id': 10, 'title': 'Селебин А.', 'content': '2004','is_published': True},
+]
 
 dir = {
         '1': ['Игнатьев А.А.',' 2001'],
@@ -52,6 +66,7 @@ menu=[{'title':'О сайте','url_name':'about'},
       {'title':'О сайте','url_name':'index1'},]
 
 def about(request):
+
     return render(request,'women/about.html',context={'menu':menu})
 
 class MyClass:
@@ -76,7 +91,7 @@ def index(request):
           'dict1': {'key_1': 'value_1', 'key_2': 'value_2'},
          'obj': MyClass(10, 20),
           'posts':date_db,
-
+          'spisok': spisok_db,
           }
     data_txt={}
     return render(request,'women/index.html',context=data)
@@ -116,9 +131,9 @@ def students_slug(request, students):
 def stud_slug(request, students):
     return HttpResponse(f"<h1>Статья про студента{students}</h1>")
 
-def spisok(request,key):
+def spisok(request,id):
 
-    return HttpResponse(f"<h1> Список участников № {dir[key]} </h1>")
+    return HttpResponse(f"<h1> Список участников № {dir[id]} </h1>")
 
 def moon(request):
     return HttpResponse("<h2> Это же МАРРИО- </h2>")

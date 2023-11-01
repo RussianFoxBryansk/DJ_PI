@@ -11,6 +11,23 @@
     {{title|capfirst}}
     <hr>
     {{url}}
+    <div>
+    <H1> Список Студентов: </H1>
+    <ul>
+    {% for s in spisok %}
+        {% if s.is_published %}
+        <li>
+            <h2> {{s.title}}</h2>
+            <p>{{ s.content }}</p>
+            {% if not forloop.last %}
+            <p ><a href="{% url 'students2' s.id %}">Смотреть список</a></p>
+            <hr>
+            {% endif %}
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
     <hr>
     <a href="{% url 'cot' %}">Страницу приложения видно 1</a>
     <hr>
