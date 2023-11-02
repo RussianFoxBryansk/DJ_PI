@@ -63,11 +63,16 @@ def index1(request):
 
 menu=[{'title':'О сайте','url_name':'about'},
       {'title':'О сайте','url_name':'moon2'},
-      {'title':'О сайте','url_name':'index1'},]
+      {'title':'О сайте','url_name':'index1'},
+      {'title':'Красивый css','url_name':'cub'},]
 
 def about(request):
 
     return render(request,'women/about.html',context={'menu':menu})
+
+def cub(request):
+
+    return render(request,'women/3D_kub.html',context={'menu':menu,'title':'Красивый css'})
 
 class MyClass:
     def __init__(self, a,b):
