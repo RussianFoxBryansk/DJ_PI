@@ -61,18 +61,18 @@ def index1(request):
     return HttpResponse(f"страница приложения women{dict(request.GET)}")
 
 
-menu=[{'title':'О сайте','url_name':'about'},
-      {'title':'О сайте','url_name':'moon2'},
-      {'title':'О сайте','url_name':'index1'},
-      {'title':'Красивый css','url_name':'cub'},]
+menu = [{'title': 'О сайте', 'url_name': 'about'},
+        {'title': 'Домашняя', 'url_name': 'home'},
+        {'title': 'Категории', 'url_name': 'cats'},
+        {'title': 'Красивый css', 'url_name': 'cub'},
+        ]
 
 def about(request):
+    return render(request, 'women/about.html', context={'menu': menu, 'title': 'О программе'})
 
-    return render(request,'women/about.html',context={'menu':menu})
 
 def cub(request):
-
-    return render(request,'women/3D_kub.html',context={'menu':menu,'title':'Красивый css'})
+    return render(request, 'women/3D_kub.html', context={'menu': menu, 'title': 'Красивый css'})
 
 class MyClass:
     def __init__(self, a,b):
@@ -81,7 +81,7 @@ class MyClass:
 def index(request):
     #t =render_to_string('women/index.html')
     #return HttpResponse(t)
-    data={'title':'главная страница',
+    data={'title': 'Главная',
             'menu':menu,
             'float':23.123,
             'value': 1,
@@ -114,7 +114,8 @@ def post_detail(request):
     else:
         return HttpResponse("GET is empty")
 
-
+def categ(request):
+    return HttpResponse("<h1> Страница с номером категорий </h1>")
 
 def categories(request, cats_id):
     return HttpResponse(f"<h1>Статья под номером {cats_id}</h1>")

@@ -1,5 +1,6 @@
-{% extends 'base.html'%}
-{%block content1%}
-<h1> PI_201 </h1>
-{% include 'women/includes/includes.html' only with pi=3.14 %}
-{%endblock%}
+{%  extends 'base.html' %}
+{% block content1 %}
+<h1> PI 201 </h1>
+
+{% include 'women/includes/nav.html' only with pi=3.14 %}
+{% endblock %}

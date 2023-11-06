@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ЗА ОРДУ</title>
-</head>
-<body>
+{%  extends 'baze.html' %}
+{% block content1 %}
 
 {{menu}}
     <br>
@@ -56,8 +51,8 @@
     <p> {{bool|filesizeformat}}: Формат размера файла</p>
     <p> {{tup|iriencode}} : Перевод в IRI код</p>
     <p > {{obj}} </p>
-    <ul>
-{% for p in posts %}
+{% include 'women/includes/nav.html' only  %}
+    <ul>{% for p in posts %}
         <li>
             <h2>{{p.F10}}</h2>
             <p>{{p.intresting}}</p>
@@ -65,6 +60,7 @@
     </li>
 {% endfor %}
 </ul>
+{% include 'women/includes/nav.html' %}
+
 {% include 'women/includes/includes.html'%} only with pi=3.14
-</body>
-</html>
+{% endblock %}

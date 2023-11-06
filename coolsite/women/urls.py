@@ -11,6 +11,7 @@ urlpatterns = [
     path('',index, name = 'home'),
     path('cat/',categories, name ='cat'),
     path('about/',about,name ='about'),
+    path('categor/', categ, name='cats'),
     path('mario/',moon, name ='mario'),
     path('cot/',moon1,name ='cot'),
     path('cod/',moon2,name ='cod'),
