@@ -1,7 +1,8 @@
 {%  extends 'baze.html' %}
 {% block content1 %}
-
+{% load static %}
 {{menu}}
+
     <br>
     {{title|capfirst}}
     <hr>
@@ -61,6 +62,6 @@
 {% endfor %}
 </ul>
 {% include 'women/includes/nav.html' %}
-
 {% include 'women/includes/includes.html'%} only with pi=3.14
+
 {% endblock %}

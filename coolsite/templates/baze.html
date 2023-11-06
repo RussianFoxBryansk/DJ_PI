@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
+
 </head>
 <body>
+{% include 'women/includes/header.html' %}
 <ul>
     {% for m in menu %}
     <li>
@@ -14,8 +16,8 @@
 </ul>
 <h1> {{title}} </h1>
 
+{% include 'women/includes/footer.html' %}
 {% block content1 %}
-
 {% endblock %}
 
 </body>

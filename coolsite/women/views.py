@@ -44,16 +44,16 @@ spisok_db = [
 ]
 
 dir = {
-        '1': ['Игнатьев А.А.',' 2001'],
-        '2': ['Коновалов А.',' 2003'],
-        '3': ['Тузов А. 2003'],
-        '4': ['Ковалёв А. 2002'],
-        '5': ['Король Б. 2002'],
-        '6': ['Снытко Р. 2004'],
-        '7': ['Лебедев Д. 2005'],
-        '8': ['Мартыненко Д. 2005'],
-        '9': ['Лелетко П. 2001'],
-        '10': ['Селебин А. 2003'],
+        '1': ['Игнатьев А.А. 2001 <img src=https://sun9-27.userapi.com/impg/JNzAbn8urKhcjob4gd2CQcU_NTJfNg_A7T9Ejw/_xV4TRKU0EA.jpg?size=811x1080&quality=95&sign=a268f9baeda96f75c27de216b69a4953&type=album /img>'],
+        '2': ['Коновалов А. 2003 <img src=https://sun9-79.userapi.com/impg/k38olU6WffjL8depG564PuzZHIKllRHMWNC-aA/UIqWYqpQePA.jpg?size=810x1080&quality=95&sign=34e14f0a67801a8cb170443a8ad51aaf&type=album /img>'],
+        '3': ['Тузов А. 2003 <img src=https://sun136-2.userapi.com/impg/zkn9lD3tysQVUso18BhjtSE-sIRzvOM1CUKcWA/z_QJIqFIAfU.jpg?size=810x1080&quality=95&sign=8aa9ceb190884005afa65629f8c915a0&type=album /img>'],
+        '4': ['Ковалёв А. 2002 <img src=https://sun9-37.userapi.com/impg/bO1t4LI8qu-8HwFOnvBQZK4o33a1yzsKBcXTjA/1hv0Ejufq-4.jpg?size=810x1080&quality=95&sign=3f6b0582a5454c309cf49b7df746b045&type=album /img>'],
+        '5': ['Король Б. 2002 <img src=https://dobrovserdce.ru/images/2022/11/02/kot%20Fedya_large.jpeg /img>'],
+        '6': ['Снытко Р. 2004 <img src=https://sun9-68.userapi.com/impf/c856032/v856032815/5f2bd/Uj6Yd91AOxk.jpg?size=442x798&quality=96&sign=e59e51d05a69f52665f1536a65255c0f&type=album /img>'],
+        '7': ['Лебедев Д. 2005 <img src=https://dobrovserdce.ru/images/2022/11/02/kot%20Fedya_large.jpeg /img>'],
+        '8': ['Мартыненко Д. 2005 <img src=https://sun9-20.userapi.com/impg/nu1uHk67M2uTAcNXTb6RobDvwCyWlyEtfY5Sfg/gleirB67Rn8.jpg?size=720x1080&quality=95&sign=b3e6f009fd83ad706c4d231ad8e875c1&type=album /img>'],
+        '9': ['Лелетко П. 2001 <img src=https://sun9-13.userapi.com/impg/MGOyyiRmCLp2YHFdhV3lNp0mm7YbPoPFzxUq2w/MBWNi0q-ufc.jpg?size=788x1054&quality=96&sign=80a1e163625a968363481eb211dbcc06&type=album /img>'],
+        '10': ['Селебин А. 2003 <img src=https://sun9-5.userapi.com/impg/cjKqAfTRhGPtfkUHnv2DdoP-qt86Q24cu5ivSg/m5OrXce2Xo0.jpg?size=592x663&quality=95&sign=e9843300af1cc1fe9eea6dbd393df15f&type=album /img>'],
     }
 
 def index1(request):
@@ -132,7 +132,7 @@ def students(request, students_id):
         raise Http404()
 
 def students_slug(request, students):
-    return HttpResponse(f"<h1>Статья про студента{students}</h1>")
+    return HttpResponse(f"<h1>Статья про студента{students}</h1>    ")
 
 def stud_slug(request, students):
     return HttpResponse(f"<h1>Статья про студента{students}</h1>")
