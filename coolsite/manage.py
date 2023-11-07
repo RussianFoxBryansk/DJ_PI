@@ -17,6 +17,13 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
+'''DB
+    python manage.py makemigtation создание миграции
+    
+    python manage.py sqlmigtate women 0001 просмотр миграции на sql
+    
+    python manage.py migrate выполнение миграции
+'''
 #python manage.py collectstatic сщбирает статические файлы перед выгрузкой на сервер
 # python manage.py runserver --insecure
 if __name__ == '__main__':

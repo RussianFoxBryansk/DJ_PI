@@ -21,11 +21,10 @@ def SearchError(request, exception):
     print(exception)
     return HttpResponseNotFound('Ошибка 400')
 
-
-
-
-
-
+date_db =[{'id':1,'F10':'Снытко Руслан Николаевич','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':True},
+{'id':2,'F10':'Король Богдан Александрович','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':True},
+{'id':3,'F10':'Тузов Александр Максимович','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':False},
+]
 
 def show_spisok(request, spisok_id):
     return HttpResponse(f"Отображение списка студента = {spisok_id}")
@@ -65,6 +64,13 @@ menu = [{'title': 'О сайте', 'url_name': 'about'},
         {'title': 'Домашняя', 'url_name': 'home'},
         {'title': 'Категории', 'url_name': 'cats'},
         {'title': 'Красивый css', 'url_name': 'cub'},
+        {'title': 'кот', 'url_name': 'cat'},
+        {'title': 'маррио', 'url_name': 'mario'},
+        {'title': 'кот-но не кот', 'url_name': 'cot'},
+        {'title': 'код', 'url_name': 'cod'},
+        {'title': 'Тест', 'url_name': 'test'},
+        {'title': 'get-13', 'url_name': 'get-13'},
+
         ]
 
 def about(request):
@@ -232,7 +238,3 @@ def read_split_line_tests():
 
     print('Все тесты прошли успешно!')
 
-date_db =[{'id':1,'F10':'Снытко Руслан Николаевич','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':True},
-{'id':2,'F10':'Король Богдан Александрович','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':True},
-{'id':3,'F10':'Тузов Александр Максимович','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':False},
-]
