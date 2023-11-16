@@ -23,6 +23,15 @@ def main():
     python manage.py sqlmigtate women 0001 просмотр миграции на sql
     
     python manage.py migrate выполнение миграции
+    
+    python manage.py shell_plus --print-sql работа с бд
+    In [3]: w1= Students(fio='Снытко Руслан Николаевич',interesting ='вязание, дизайн, верстка, вышивание крестиком',dipolom_red = True)
+
+    In [4]: w1.save()
+    Students.objects.create(fio='Король Богдан Александрович',interesting ='парашутный спорт, бокс , страйкбол,спортивный туризм',dipolom_red = True )
+    
+
+
 '''
 #python manage.py collectstatic сщбирает статические файлы перед выгрузкой на сервер
 # python manage.py runserver --insecure
