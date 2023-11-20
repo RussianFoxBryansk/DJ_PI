@@ -9,6 +9,9 @@ from django.template.defaultfilters import slugify, upper
 from django.template.loader import render_to_string
 
 from django.views.decorators.csrf import requires_csrf_token
+from .models import Book
+
+
 
 def ServerError(request):
     return HttpResponseNotFound( '<h1>ошибка сервера<h1>')

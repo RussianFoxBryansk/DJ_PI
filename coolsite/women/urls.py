@@ -27,6 +27,7 @@ urlpatterns = [
     path('DATA/', save_data, name='GET'),
     path('GET_13/',post_detail,name='get-13'),
     path('spisok_st/<int:spisok_id>/', views.show_spisok, name='spisok_st'),
-    path('cub/',cub,name='cub')
+    path('cub/',cub,name='cub'),
+
 ]
 
