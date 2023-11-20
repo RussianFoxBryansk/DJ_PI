@@ -24,13 +24,26 @@ def main():
     
     python manage.py migrate выполнение миграции
     
-    python manage.py shell_plus --print-sql работа с бд
-    In [3]: w1= Students(fio='Снытко Руслан Николаевич',interesting ='вязание, дизайн, верстка, вышивание крестиком',dipolom_red = True)
-
-    In [4]: w1.save()
-    Students.objects.create(fio='Король Богдан Александрович',interesting ='парашутный спорт, бокс , страйкбол,спортивный туризм',dipolom_red = True )
-    
-
+""" Работа с БД CRUD python manage.py shell_plus --print-sql
+создание
+In [2]: w1 = Students(fio='Снытко Руслан Николаевич', interesting= 'вязание, дизайн, верстка, вышивание крестиком', dipolom_red= True)
+In [3]: w1.save()
+Students.objects.create(fio= 'Король Богдан Александрович', interesting= 'парашутный спорт, бокс , страйкбол,спортивный туризм', diplom_red=1)  
+чтение
+все записи Students.objects.all()
+фильтр
+Students.objects.filter(pk=1)
+ https://docs.djangoproject.com/en/4.2/ref/models/querysets/#field-lookups
+выбор одной записи
+Students.objects.get(pk=1)
+сортировка записей 
+Students.objects.order_by('fio')
+обратный порядок 
+Students.objects.order_by('-fio')
+изменение 
+Students.objects.update(diplom_red=0)
+wd.delete() удаление записи 
+"""
 
 '''
 #python manage.py collectstatic сщбирает статические файлы перед выгрузкой на сервер

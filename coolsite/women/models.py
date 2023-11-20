@@ -22,17 +22,17 @@ class Gradebook (models.Model):
     lesson = models.CharField('Предмет',max_length=40)
     fio = models.CharField(max_length=100)
     date=models.DateField('Дата получения зачёта')
-<<<<<<< HEAD
     sale = models.IntegerField(default=0)
-=======
->>>>>>> origin/master
+
 
 
 class Portfolio (models.Model):
     lesson = models.CharField('Предмет',max_length=40)
     text = models.TextField('Перечень всех достижений')
-<<<<<<< HEAD
     date = models.DateTimeField('Дата создания')
-=======
-    date=models.DateTimeField('Дата создания')
->>>>>>> origin/master
+
+class Book (models.Model):
+    name_book = models.CharField('Наименование книги', max_length=50)
+    avtor = models.CharField('Автор', max_length=25)
+    price = models.IntegerField(default=0)
+
