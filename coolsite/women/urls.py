@@ -19,6 +19,7 @@ urlpatterns = [
     path('cats/<int:cats_id>/', categories,name ='cats1'),
     path('cats/<slug:cats>/', categories_slug,name ='cats2'),
     path('students/<int:students_id>/', students,name ='students1'),
+    path('students1/<slug:student>/', student,name ='students1'),
     path('students/<slug:students>/', students_slug,name ='students2'),
     path('studo/<slug:students>/', stud_slug,name ='mario'),
     path("spisok/<int:id> ",spisok,name ='studo'),
@@ -28,6 +29,7 @@ urlpatterns = [
     path('GET_13/',post_detail,name='get-13'),
     path('spisok_st/<int:spisok_id>/', views.show_spisok, name='spisok_st'),
     path('cub/',cub,name='cub'),
+    path('book/',Book_name)
 
 ]
 

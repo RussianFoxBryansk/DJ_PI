@@ -17,6 +17,7 @@ class  Students (models.Model):
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
     dipolom_red = models.BooleanField(default=True)
+    slug = models.SlugField(max_length=255, db_index=True, blank=True, default='', verbose_name='URL')
 
 class Gradebook (models.Model):
     lesson = models.CharField('Предмет',max_length=40)

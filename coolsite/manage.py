@@ -18,7 +18,7 @@ def main():
     execute_from_command_line(sys.argv)
 
 '''DB
-    python manage.py makemigtation создание миграции
+    python manage.py makemigrations создание миграции
     
     python manage.py sqlmigtate women 0001 просмотр миграции на sql
     

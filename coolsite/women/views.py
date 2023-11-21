@@ -10,8 +10,10 @@ from django.template.loader import render_to_string
 
 from django.views.decorators.csrf import requires_csrf_token
 from .models import Book
-
-
+def Book_name(request):
+    book_inf = Book.objects.all()
+    print(book_inf)
+    return render(request, 'women/book.html', {'kkk':book_inf})
 
 def ServerError(request):
     return HttpResponseNotFound( '<h1>ошибка сервера<h1>')
@@ -28,6 +30,13 @@ date_db =[{'id':1,'F10':'Снытко Руслан Николаевич','intres
 {'id':2,'F10':'Король Богдан Александрович','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':True},
 {'id':3,'F10':'Тузов Александр Максимович','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':False},
 ]
+def student(request,student):
+    #t =render_to_string('women/index.html')
+    #return HttpResponse(t)
+    data={'title': 'Профиль студента',
+            'menu':menu,
+          }
+    return render(request, 'women/student.html', data)
 
 def show_spisok(request, spisok_id):
     return HttpResponse(f"Отображение списка студента = {spisok_id}")
