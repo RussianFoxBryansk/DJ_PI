@@ -4,12 +4,14 @@ from contextvars import Context
 from django.core.exceptions import SuspiciousOperation, PermissionDenied
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.template.defaultfilters import slugify, upper
 from django.template.loader import render_to_string
 
 from django.views.decorators.csrf import requires_csrf_token
-from .models import Book
+from .models import Book, Students
+
+
 def Book_name(request):
     book_inf = Book.objects.all()
     print(book_inf)
@@ -30,13 +32,30 @@ date_db =[{'id':1,'F10':'Снытко Руслан Николаевич','intres
 {'id':2,'F10':'Король Богдан Александрович','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':True},
 {'id':3,'F10':'Тузов Александр Максимович','intresting':'вязание,дизайн,вёрстка,вышивание крестиком','diplom_red':False},
 ]
-def student(request,student):
-    #t =render_to_string('women/index.html')
-    #return HttpResponse(t)
+
+
+
+
+def students(request):
+    posts = Students.objects.all()
+    data={'title': 'Список студентов',
+            'menu': menu,
+            'posts': posts,
+          }
+    return render(request, 'women/students.html', data)
+def student(request, student_slug):
+    post = get_object_or_404(Students, slug=student_slug)
     data={'title': 'Профиль студента',
             'menu':menu,
+            'post':post,
           }
     return render(request, 'women/student.html', data)
+
+
+
+
+
+
 
 def show_spisok(request, spisok_id):
     return HttpResponse(f"Отображение списка студента = {spisok_id}")
@@ -82,7 +101,7 @@ menu = [{'title': 'О сайте', 'url_name': 'about'},
         {'title': 'код', 'url_name': 'cod'},
         {'title': 'Тест', 'url_name': 'test'},
         {'title': 'get-13', 'url_name': 'get-13'},
-
+        {'title': 'Студенты', 'url_name': 'students1'},
         ]
 
 def about(request):
@@ -141,7 +160,7 @@ def categories(request, cats_id):
 def categories_slug(request, cats):
     return HttpResponse(f"<h1>Статья под категории {cats}</h1>")
 
-def students(request, students_id):
+def students1(request, students_id):
     if students_id>0 and students_id<=10:
         return HttpResponse(f"<h1>Студент {students_id}){dir[str(students_id)][0]} найден</h1>")
     if students_id ==-1:

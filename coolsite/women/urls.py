@@ -18,8 +18,11 @@ urlpatterns = [
     path('test/',index1,name ='test'),
     path('cats/<int:cats_id>/', categories,name ='cats1'),
     path('cats/<slug:cats>/', categories_slug,name ='cats2'),
-    path('students/<int:students_id>/', students,name ='students1'),
-    path('students1/<slug:student>/', student,name ='students1'),
+    path('students/<int:students_id>/', students1,name ='student2'),
+
+    path('students1/', students, name='students1'),
+    path('students1/<slug:students_slug>/', student, name='student'),
+
     path('students/<slug:students>/', students_slug,name ='students2'),
     path('studo/<slug:students>/', stud_slug,name ='mario'),
     path("spisok/<int:id> ",spisok,name ='studo'),
